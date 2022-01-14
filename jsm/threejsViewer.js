@@ -107,6 +107,7 @@ class threejsViewer {
                 //嘗試
                 texture.format = THREE.LuminanceFormat;
                 texture.type = THREE.UnsignedByteType;
+                texture.minFilter = texture.magFilter = THREE.LinearFilter;
                 //texture.format = THREE.LuminanceFormat;
                 //texture.type = //...
 
@@ -117,7 +118,7 @@ class threejsViewer {
                         'u_size': { value: new THREE.Vector3(dims[0], dims[1], dims[2]) },
                         'u_cmdata': { value: cmtexture },
                         'u_renderstyle': { value: arg.renderType },
-                        'u_sizeEnable': { value: 0 },
+                        'u_sizeEnable': { value: arg.renderType },
                         'u_sizeData': { value: null }
                     },
                     vertexShader: shader.vertexShader,
@@ -139,7 +140,7 @@ class threejsViewer {
                 uniforms['u_renderstyle'].value = arg.renderType;
             }
 
-            if (volume.used) {
+            /*if (volume.used) {
                 uniforms = mesh.material.uniforms;
                 if (uniforms['u_sizeEnable'] == 0){
                     // initial
@@ -157,7 +158,7 @@ class threejsViewer {
                     uniforms['u_sizeData'].value.image = { data: volume.sizeData };
                     uniforms['u_sizeData'].value.needUpdate = true;
                 }
-            }
+            }*/
             this.renderScene()
         }
 
