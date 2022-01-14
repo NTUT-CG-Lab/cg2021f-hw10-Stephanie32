@@ -118,7 +118,7 @@ class threejsViewer {
                         'u_size': { value: new THREE.Vector3(dims[0], dims[1], dims[2]) },
                         'u_cmdata': { value: cmtexture },
                         'u_renderstyle': { value: arg.renderType },
-                        'u_sizeEnable': { value: arg.renderType },
+                        'u_sizeEnable': { value: 0 },
                         'u_sizeData': { value: null }
                     },
                     vertexShader: shader.vertexShader,
